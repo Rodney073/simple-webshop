@@ -1,0 +1,30 @@
+/* Remove the navbar's default margin-bottom and rounded borders */
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+/* Add a gray background color and some padding to the footer */
+footer {
+    background-color: olive;
+    padding: 25px;
+}
+
+.picOfItems {
+    bottom: 0;
+    left: 0;
+    height: 100px;
+    border: 3px solid #73AD21;
+}
+
+td {
+    height: 100px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+#cssTable td
+{
+    vertical-align: middle;
+}
