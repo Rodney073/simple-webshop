@@ -5,11 +5,15 @@
     <title>Simple WebShop</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!--    <style>    </style>-->
+
 </head>
 <body>
 
@@ -37,14 +41,18 @@
     </div>
 </nav>
 
+
+
 <div class="jumbotron">
     <div class="container text-center">
         <h1>Available Items</h1>
         <p>Lorem ipsum dolor sit amet, stet dicant mea ei. Admodum vivendo ea has, his libris conclusionemque at.</p>
+        <a href="#" id="button" class="button">Click Me</a>
         <br>
         <table class="table table-striped"  id="table">
             <thead class="thead-dark">
                 <tr>
+                    <th>Pop Up</th>
                     <th>Name</th>
                     <th>Description</th>
                     <th>URL</th>
@@ -55,6 +63,7 @@
             </thead>
             <tbody class="table-striped">
                 <tr th:each="item : ${items}">
+                    <td><a th:href="'index/' + ${item.id}" >Details</a></td>
                     <td th:text="${item.getName()}"></td>
                     <td th:text="${item.getDescription()}"></td>
                     <td><a class="itemPicLink" th:text="${item.getPhotoURL()}" th:href="${item.getPhotoURL()}"></a></td>
@@ -67,53 +76,21 @@
     </div>
 </div>
 
-<!--<div class="container-fluid bg-3 text-center">
-    <h3>Some of my Work</h3><br>
-    <div class="row">
-        <div class="col-sm-3">
-            <p>Some text..</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Some text..</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Some text..</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Some text..</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-    </div>
-</div><br>
-
-<div class="container-fluid bg-3 text-center">
-    <div class="row">
-        <div class="col-sm-3">
-            <p>Some text..</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Some text..</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Some text..</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-        <div class="col-sm-3">
-            <p>Some text..</p>
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-        </div>
-    </div>
-</div>-->
 <br>
+
+
+<div class="bg-modal">
+    <div class="modal-content">
+        <div id="close" class="close">+</div>
+        <h1>Hello World!</h1>
+
+
+    </div>
+</div>
 
 <footer class="container-fluid text-center">
     <p>Footer Text</p>
 </footer>
-
+<script type="text/javascript" src="js/strings.js"></script>
 </body>
 </html>
