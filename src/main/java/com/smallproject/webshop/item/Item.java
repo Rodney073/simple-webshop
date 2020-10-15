@@ -22,5 +22,12 @@ public class Item {
     private int startingPrice;
     private int purchasePrice;
 
+    public Item(String name, String description, String photoURL, int startingPrice) {
+        this.name= name;
+        this.description= description;
+        this.photoURL = photoURL;
+        this.startingPrice = startingPrice;
+        this.purchasePrice = startingPrice;
+    }
 }
 

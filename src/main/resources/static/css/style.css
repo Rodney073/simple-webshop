@@ -1,4 +1,9 @@
 /* Remove the navbar's default margin-bottom and rounded borders */
+
+html {
+    overflow: unset;
+}
+
 .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -6,7 +11,7 @@
 
 /* Add a gray background color and some padding to the footer */
 footer {
-    background-color: olive;
+    background-color: #73AD21;
     padding: 25px;
 }
 
@@ -29,23 +34,28 @@ td {
     vertical-align: middle;
 }
 
-.bg-modal{
+.bg-modal, .bg-modal-add, .bg-modal-delete{
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.7);
     position: absolute;
     top:0;
+    left: 0;
     display: none;
     justify-content: center;
     align-items: center;
 }
 
-.modal-content{
+.modal-content, .modal-content-add, .modal-content-delete{
     width: 500px;
     height: 500px;
     background-color: white;
     border-radius: 4px;
     padding: 20px;
+}
+
+.modal-content-delete {
+    height: 200px;
 }
 
 .close {
@@ -55,6 +65,10 @@ td {
     font-size: 40px;
     transform: rotate(45deg);
     cursor: pointer;
+}
+
+.deleteItem {
+    color: white;
 }
 
 

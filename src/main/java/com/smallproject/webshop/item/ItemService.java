@@ -21,4 +21,13 @@ public class ItemService {
     public Item findItemById (Long id) {
         return itemRepository.findItemById(id);
     }
+
+    public void saveNewItem(String name, String description, String photoURL, int startingPrice){
+        Item item = new Item(name, description, photoURL, startingPrice);
+        itemRepository.save(item);
+    }
+
+    public void deleteItem (Long id) {
+        itemRepository.deleteById(id);
+    }
 }

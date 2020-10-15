@@ -47,7 +47,8 @@
     <div class="container text-center">
         <h1>Available Items</h1>
         <p>Lorem ipsum dolor sit amet, stet dicant mea ei. Admodum vivendo ea has, his libris conclusionemque at.</p>
-        <a href="#" id="button" class="button">Click Me</a>
+        <a href="#" id="add" class="btn btn-success btn-rounded btn-sm my-0 add">Add new Item</a>
+        <br>
         <br>
         <table class="table table-striped"  id="table">
             <thead class="thead-dark">
@@ -59,17 +60,33 @@
                     <th>Pic</th>
                     <th>Starting Price</th>
                     <th>Purchase Price</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody class="table-striped">
                 <tr th:each="item : ${items}">
-                    <td><a th:href="'index/' + ${item.id}" >Details</a></td>
+     <!--               <td><a id="button" class="button" th:href="'index/' + ${item.id}" >Details</a></td>-->
+                    <td><a id="button" class="button" href="#" >Details</a></td>
                     <td th:text="${item.getName()}"></td>
                     <td th:text="${item.getDescription()}"></td>
                     <td><a class="itemPicLink" th:text="${item.getPhotoURL()}" th:href="${item.getPhotoURL()}"></a></td>
                     <td><img class="picOfItems" th:src="${item.getPhotoURL()}" alt="Image"> </td>
                     <td th:text="${item.getStartingPrice()}"></td>
                     <td th:text="${item.getPurchasePrice()}"></td>
+                    <td><button class="btn btn-success btn-rounded btn-sm my-0"><a class="deleteItem" id="deleteItem" href="#" >Delete</a></button></td>
+
+                    <div class="bg-modal">
+                        <div class="modal-content">
+                            <a class="close" href="index">+</a>
+                            <h1>Hello World!</h1>
+                            <h2 th:text="${item.getName()}"></h2>
+                            <p th:text="${item.getDescription()}"></p>
+                            <img class="picOfItems" th:src="${item.getPhotoURL()}" alt="Image"> <br><br>
+                            <p>Starter Price: <span th:text="${item.getStartingPrice()}"></span> </p>
+                            <p>Purchase Price: <span th:text="${item.getPurchasePrice()}"></span></p>
+                        </div>
+                    </div>
+
                 </tr>
             </tbody>
         </table>
@@ -78,15 +95,45 @@
 
 <br>
 
+<div class="bg-modal-add">
+    <div class="modal-content-add">
+        <a class="close" href="index">+</a>
 
-<div class="bg-modal">
-    <div class="modal-content">
-        <div id="close" class="close">+</div>
-        <h1>Hello World!</h1>
+        <h1>Add new Item</h1>
 
+        <form action="/index/save" method="post">
 
+        <label for="name">Item name</label> <br/>
+        <input class="form-control mb-4" type="text" id="name" name="name" placeholder="Type the name of the item"/>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control rounded-0" id="description" name="description"> </textarea>
+        </div>
+
+        <label for="photoURL">URL of the picture</label> <br/>
+        <input class="form-control mb-4" type="text" id="photoURL" name="photoURL" placeholder="Type URL"/>
+
+        <label for="startingPrice">Starting price</label> <br/>
+        <input class="form-control mb-4" type="text" id="startingPrice" name="startingPrice" placeholder="Type starting price"/><br>
+
+        <button class="btn btn-info btn-block btn-primary btn-rounded save" id="save" type="submit">Add new item</button>
+        </form>
     </div>
 </div>
+
+
+<div class="bg-modal-delete">
+    <div class="modal-content-delete">
+        <a class="close" href="index">+</a>
+
+        <form action="/index/delete/" method="get">
+            <h2>Are you sure?</h2> <br>
+            <button class="btn btn-info btn-block btn-primary btn-rounded" id="delete" type="submit">DELETE</button>
+        </form>
+    </div>
+</div>
+
 
 <footer class="container-fluid text-center">
     <p>Footer Text</p>
